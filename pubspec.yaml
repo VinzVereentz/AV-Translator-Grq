@@ -1,0 +1,21 @@
+name: av_translator
+description: AV Translator - Japanese to Indonesian subtitle translator and video player.
+publish_to: 'none'
+version: 2.0.0+1
+environment:
+  sdk: '>=3.12.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  file_picker: ^12.2.0
+  http: ^1.5.0
+  video_player: ^2.10.0
+  cupertino_icons: ^1.0.8
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/av_translator_logo.png
