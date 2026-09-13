@@ -1,0 +1,24 @@
+name: Build AV Translator APK
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter create . --platforms=android --project-name av_translator --org com.vinzvereent
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter build apk --release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AV-Translator-APK
+          path: build/app/outputs/flutter-apk/app-release.apk
